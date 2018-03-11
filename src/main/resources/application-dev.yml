@@ -1,0 +1,36 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/db_ecshop?characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  mail:
+    host: smtp.163.com
+    username: znlccy0603@163.com
+    password: znlccy06030704
+    port: 25
+    default-encoding: UTF-8
+    protocol: smtp
+    properties:
+      mail:
+       smth:
+        auth: true
+        starttls:
+          enable: true
+          required: true
+  cache:
+    type: redis
+  redis:
+    database: 2
+    host: 127.0.0.1
+    port: 6379
+    timeout: 20000
+    pool:
+      max-active: 8
+      min-idle: 0
+      max-idle: 8
+      max-wait: -1
