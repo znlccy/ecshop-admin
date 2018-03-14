@@ -1,3 +1,5 @@
+server:
+  port: 8080
 spring:
   jpa:
     show-sql: true
@@ -8,29 +10,58 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActice: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
   mail:
     host: smtp.163.com
     username: znlccy0603@163.com
-    password: *************
+    password: znlccy06030704
     port: 25
     default-encoding: UTF-8
     protocol: smtp
     properties:
       mail:
        smth:
-        auth: true
+        auth: truez
         starttls:
           enable: true
           required: true
   cache:
     type: redis
   redis:
-    database: 2
+    # Redis数据库索引(默认为0)
+    database: 0
+    # Redis服务器地址
     host: 127.0.0.1
+    # Redis服务器连接端口
     port: 6379
+    # Redis服务器连接密码(默认为空)
+    password:
+    # Redis连接超时时间（毫秒）
     timeout: 20000
     pool:
+      # 连接池最大连接数（使用负值表示没有限制
       max-active: 8
+      # 连接池中的最小空闲连接
       min-idle: 0
+      # 连接池中的最大空闲连接
       max-idle: 8
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
       max-wait: -1
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
