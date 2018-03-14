@@ -3,10 +3,8 @@ package com.znlccy.ecshop.model;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * @CreateTime:2018/3/14 11:06
@@ -24,11 +22,20 @@ public class User {
     @GeneratedValue(generator = "userId")
     private Long userId;
 
+    @Column(name = "userName")
     private String userName;
 
+    @Column(name = "userPassword")
     private String userPassword;
 
+    @Column(name = "userEmail")
     private String userEmail;
+
+    @Column(name = "loginTime")
+    private Timestamp loginTime;
+
+    @Column(name = "loginStatus")
+    private boolean loginStatus;
 
     public Long getUserId() {
         return userId;
@@ -60,5 +67,21 @@ public class User {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    public Timestamp getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(Timestamp loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public boolean isLoginStatus() {
+        return loginStatus;
+    }
+
+    public void setLoginStatus(boolean loginStatus) {
+        this.loginStatus = loginStatus;
     }
 }
