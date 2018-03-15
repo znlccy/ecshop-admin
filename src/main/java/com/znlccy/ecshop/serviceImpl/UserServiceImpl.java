@@ -4,6 +4,7 @@ import com.znlccy.ecshop.dao.UserDao;
 import com.znlccy.ecshop.model.User;
 import com.znlccy.ecshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @Version:v-1.0.0
  * @Comment: 用户服务接口实现类
  */
+@Service
 public class UserServiceImpl implements UserService {
 
     /**
