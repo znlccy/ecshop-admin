@@ -1,5 +1,6 @@
 package com.znlccy.ecshop.controller;
 
+import com.znlccy.ecshop.annotation.RequestLimit;
 import org.springframework.web.bind.annotation.*;
 
 /**

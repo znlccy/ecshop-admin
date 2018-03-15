@@ -1,5 +1,6 @@
 package com.znlccy.ecshop.controller;
 
+import com.znlccy.ecshop.annotation.RequestLimit;
 import com.znlccy.ecshop.config.EmailConfig;
 import com.znlccy.ecshop.service.UserService;
 import com.znlccy.ecshop.tools.RandomTools;
@@ -44,6 +45,7 @@ public class EmailController {
      * @return: void
      */
     @RequestMapping(value = "/send", method = RequestMethod.POST)
+    @RequestLimit(count = 2, time = 3000)
     @ResponseBody
     public String sendCode(@RequestParam(value = "email",defaultValue = "", required = true) String email, HttpServletRequest request) {
         try {

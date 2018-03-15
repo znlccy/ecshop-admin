@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -15,16 +17,18 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_user", catalog = "db_ecshop")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GenericGenerator(name = "userId", strategy = "com.znlccy.ecshop.utils.KeyGeneratorUtils", parameters = {@Parameter(name = "k", value = "M")})
     @GeneratedValue(generator = "userId")
     private Long userId;
 
+    @NotBlank
     @Column(name = "userName")
     private String userName;
 
+    @NotBlank
     @Column(name = "userPassword")
     private String userPassword;
 
